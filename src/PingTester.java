@@ -43,7 +43,7 @@ public class PingTester
             String[] parts = output.split("= "); // split data from preamble
             if (parts.length < 2) return null;
             output = parts[1];
-            output = output.substring(0,output.length() - 3); // remove end junk
+            output = output.substring(0,output.indexOf("ms")); // remove end junk
 
             parts = output.split("/"); // split on data separator
             if (parts.length < 4) return null; // check length
