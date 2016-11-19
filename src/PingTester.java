@@ -17,7 +17,7 @@ public class PingTester
 
     private final Mode mode;
     private final String hostname;
-    private static final String ARGUMENTS = " -c 10 ";
+    private static final String ARGUMENTS = " -c 10 -i 0.2 ";
 
     PingTester(Mode mode, String hostname)
     {
