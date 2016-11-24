@@ -16,7 +16,7 @@ class PingTester
 
     private final Mode mode;
     private final String hostname;
-    private static final String ARGUMENTS = " -c 10 -i 0.2 ";
+    private static final String ARGUMENTS = " -c 10 -i 0.2 "; // arguments for count 10 interval 200ms
 
     PingTester(Mode mode, String hostname)
     {
@@ -28,13 +28,13 @@ class PingTester
     {
 
         float[] data = {-1f,-1f,-1f,-1f};
-        String cmd = mode == Mode.IPV4? "ping" : "ping6";
-        cmd += ARGUMENTS;
-        cmd += hostname;
+        String cmd = mode == Mode.IPV4? "ping" : "ping6"; // select mode
+        cmd += ARGUMENTS; // add arguments
+        cmd += hostname; // add hostname
 
         try {
-            Process p = Runtime.getRuntime().exec(cmd);
-            BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            Process p = Runtime.getRuntime().exec(cmd); // run command
+            BufferedReader inputStream = new BufferedReader(new InputStreamReader(p.getInputStream())); // lock on output
             String output = "";
             String s;
             while ((s = inputStream.readLine()) != null) {
